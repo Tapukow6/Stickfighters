@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Stick Figure Game</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="main-menu" class="menu">
+      <h1>Stick Figure Arena</h1>
+      <div class="menu-actions">
+        <button id="btn-play" class="menu-btn"><span>Play (Bot)</span></button>
+        <button id="btn-two-player" class="menu-btn"><span>Two Player</span></button>
+      </div>
+      <p class="hint">Click anywhere / press any key to start</p>
+    </div>
+
+    <div id="debug-status" style="position:fixed;left:8px;top:8px;padding:6px 8px;background:rgba(0,0,0,0.6);color:#fff;border-radius:6px;z-index:10000;font-size:12px;">loading...</div>
+    <script>document.getElementById && (document.getElementById('debug-status').textContent = 'page loaded (inline)');</script>
+
+    <canvas id="game"></canvas>
+    <script src="app.js"></script>
+  </body>
+</html>

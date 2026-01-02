@@ -1,0 +1,75 @@
+:root{
+  --bg: #0b1220;
+  --fg: #e6eef8;
+  --accent: #6ee7b7;
+}
+html,body{height:100%;margin:0;color:var(--fg);font-family:Inter, Arial, sans-serif}
+.overlay{position:fixed;left:16px;top:12px;z-index:10}
+.overlay h1{margin:0;font-size:18px}
+.overlay p{margin:4px 0;color:rgba(230,238,248,0.9)}
+.hint{font-size:12px;color:rgba(230,238,248,0.7)}
+/* Fallback page background (in case canvas fails) */
+body{
+  background: linear-gradient(#9bd3ff 0%, #dff3ff 60%);
+}
+#game{display:block;width:100vw;height:100vh;outline:none}
+
+/* Main menu */
+#main-menu{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.75);padding:24px;border-radius:12px;z-index:999;min-width:280px;text-align:center;color:#fff}
+#main-menu h1{margin:0 0 14px 0;font-size:20px}
+.menu-actions{display:flex;gap:12px;justify-content:center}
+.menu-btn{background:var(--accent);border:none;color:#07201a;padding:10px 16px;border-radius:8px;font-weight:700;cursor:pointer}
+.menu-btn:hover{filter:brightness(0.95)}
+:root{
+  --bg: #0b1220;
+  --fg: #e6eef8;
+  --accent: #6ee7b7;
+}
+html,body{height:100%;margin:0;color:var(--fg);font-family:Inter, Arial, sans-serif}
+.overlay{position:fixed;left:16px;top:12px;z-index:10}
+.overlay h1{margin:0;font-size:18px}
+.overlay p{margin:4px 0;color:rgba(230,238,248,0.9)}
+.hint{font-size:12px;color:rgba(230,238,248,0.7)}
+/* Fallback page background (in case canvas fails) */
+body{
+  background: linear-gradient(#9bd3ff 0%, #dff3ff 60%);
+}
+#game{display:block;width:100vw;height:100vh;outline:none;position:relative;z-index:0}
+
+/* Main menu */
+#menu{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.7);padding:22px;border-radius:10px;z-index:9999;min-width:300px;text-align:center}
+.menu-visible #game{pointer-events:none}
+#menu h1{margin:0 0 12px 0;font-size:20px}
+.menu-actions{display:flex;gap:12px;justify-content:center;margin-bottom:8px}
+.menu-btn{background:var(--accent);border:none;color:#07201a;padding:10px 14px;border-radius:8px;font-weight:600;cursor:pointer}
+.menu-btn:hover{filter:brightness(0.95)}
+.menu .hint{color:rgba(255,255,255,0.85);margin-top:6px}
+
+.lobby-row{margin:8px 0;color:#07201a}
+.lobby-row input[type="text"]{padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.12);width:160px}
+.lobby-row select{padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,0.12)}
+
+/* Fullscreen Play button: override main-menu to cover viewport and make the button fill it */
+#main-menu{position:fixed;left:0;top:0;right:0;bottom:0;width:100vw;height:100vh;transform:none;padding:0;margin:0;background:linear-gradient(180deg, rgba(10,18,30,0.95), rgba(6,12,20,0.95));border-radius:0;display:flex;align-items:center;justify-content:center;z-index:9999;overflow:hidden;pointer-events:auto}
+
+/* subtle animated background layers */
+#main-menu::before{content:'';position:absolute;left:-20%;top:-20%;width:140%;height:140%;background:radial-gradient(circle at 20% 20%, rgba(110,231,183,0.12), transparent 10%), radial-gradient(circle at 80% 80%, rgba(155,211,255,0.10), transparent 12%);mix-blend-mode:screen;opacity:0.95;animation:bgMove 18s linear infinite}
+@keyframes bgMove{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-6%) rotate(3deg)}100%{transform:translateY(0) rotate(0)}}
+
+/* reveal the title above the button */
+#main-menu h1{position:absolute;top:8vh;left:50%;transform:translateX(-50%);font-size:36px;margin:0;color:#fff;text-shadow:0 6px 16px rgba(0,0,0,0.6);letter-spacing:2px;z-index:2}
+
+#main-menu .menu-actions{width:100%;height:100%;display:flex;align-items:center;justify-content:space-between;position:relative;z-index:2;pointer-events:auto;padding-left:12vw;padding-right:12vw}
+
+/* big full-screen Play button */
+#main-menu .menu-btn{width:240px;height:96px;border-radius:12px;padding:12px 20px;margin:0;font-size:18px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 12px 24px rgba(3,10,18,0.28);transition:transform 120ms cubic-bezier(.2,.9,.2,1), box-shadow 120ms;pointer-events:auto}
+#main-menu .menu-btn:hover{transform:scale(1.02);box-shadow:0 18px 36px rgba(3,10,18,0.32)}
+
+#main-menu .menu-btn::after{content:'';position:absolute;left:50%;top:50%;width:12px;height:12px;background:radial-gradient(circle, rgba(255,255,255,0.35), rgba(255,255,255,0.06));transform:translate(-50%,-50%) scale(1);opacity:0.9;border-radius:50%;animation:btnPulse 1800ms ease-out infinite}
+@keyframes btnPulse{0%{transform:translate(-50%,-50%) scale(1);opacity:0.9}50%{transform:translate(-50%,-50%) scale(4);opacity:0.06}100%{transform:translate(-50%,-50%) scale(1);opacity:0.9}}
+
+/* label style inside button */
+#main-menu .menu-btn span{position:relative;z-index:3;color:#052017;font-weight:800;text-transform:uppercase;letter-spacing:0px;font-size:18px;line-height:1}
+
+/* dark translucent stripe at bottom for hint */
+#main-menu .hint{position:absolute;bottom:6vh;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.85);z-index:3;font-size:13px}
