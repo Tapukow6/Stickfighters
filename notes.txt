@@ -1,1 +1,27 @@
-20260102 version1
+20260102 version1\
+
+
+Development notes
+
+   
+yes please
+
+I'll add a minimal package.json, switch vercel.json to use @vercel/static-build, create a .vercelignore, and update the todo list to track these deployment steps.
+
+Edited
+package.json+9-1
+Edited
+vercel.json+2-5
+Edited
+.vercelignore+12-1
+
+All set — files added/updated:
+
+package.json (build script copies game → public/)
+vercel.json (now uses @vercel/static-build with public as output)
+.vercelignore (excludes common dev files)
+Todo list updated. Next I can:
+
+Give the exact commands to push and deploy (Git + Vercel CLI), or
+Run npm run build locally and start a dev server to sanity-check.
+Which would you like me to do now?
